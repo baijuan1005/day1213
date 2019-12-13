@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- 引入vue核心外部文件 -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+               <input type="radio" value="xiao" name=star v-model="name "/>肖战
+               <input type="radio" value="wang" name=star v-model="name"/>王一博
+               <input type="radio" value="zhang" name=star v-model="name"/>张艺兴
+               <img v-if="name=='xiao'" style="width:230px;height: 300px;" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575976808373&di=e59f6dd934899d16741009a3a0211fa3&imgtype=jpg&src=http%3A%2F%2Fpic1.zhimg.com%2F50%2Fv2-10da326b2e2407cc44d43c1ea13d6a0d_hd.jpg"/>
+               <img v-else-if="name=='wang'" style="width:260px;height: 281px;" src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3357567415,2761016675&fm=26&gp=0.jpg"/>
+               <img v-else-if="name=='zhang'" style="width:230px;height: 281px;" src="https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1965234594,238125306&fm=26&gp=0.jpg"/>
+               <img v-else style="width:220px;height: 281px;"  src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=486460475,3011502578&fm=26&gp=0.jpg"/>
+            </div>
+            <script>
+                var app=new Vue({
+                    el:"#app",
+                    data:{
+                       show:'false',
+                       name:""
+                    }
+                });
+            </script>
+    
+</body>
+</html>

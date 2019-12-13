@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <!-- <h1>{{article.title}}</h1>
+      <h2>{{article.author}}</h2>
+      <h3>{{article.publicshDate}}</h3>
+      <p>
+            <img :src="article.ImgSrc" style="width:50px;height:100px"/>
+            {{article.content}}
+
+      </p> -->
+      <!-- heart是组件的一个属性，那么组建必须通过props声明这个属性 -->
+      <guolele v-for="article in articleList" :key="article.title" ：heart="article"></guolele>
+     
+    </div>
+    <script>
+        //定义guolele这个子定义组件
+        //第一个参数是自定义组件的标签名称，第二个参数是定义该组件的运行规则对象
+
+        Vue.component('guolele',{
+            props:['heart'],
+            //template中定义的是组件的模板，也就是html和{{}}以及Vue指令的组合
+            //template必须要有根标签 例如 <h1><h1/><h2><h2/>不合法，<div><h1><h1/><h2><h2/></div>合法
+                template:'<div>'+
+                '<h1 style="color:red;">标题：{{heart.title}}</h1>'+
+                    '<h2>作者：{{heart.author}}</h2>'+
+                        '<h3>日期：{{heart.publicshDate}}</h3>'+
+                        '<p>内容：{{heart.content}}</p>'+
+                        '</div>'
+     })
+       var app=new Vue({
+           el:"#app",
+           data:{
+            articleList:[
+                {
+                   title:"成年人",
+                   author:"小白",
+                   publicshDate:"2019-12-13",
+                   content:"成年人的世界，明明指头碰一碰就碎了，却还是要回到家关上门那一刻才化成灰！",
+                //    ImgSrc:"http://cdnimg103.lizhi.fm/audio_cover/2016/7/21/2546627545540748807_320x320.png"
+               },
+                {
+                   title:"少女心",
+                   author:"大白",
+                   publicshDate:"2019-12-13",
+                   content:"做一个明媚的女子！",
+               },
+
+                {
+                   title:"生活",
+                   author:"大白",
+                   publicshDate:"2019-12-13",
+                   content:"想要努力生活，不扯任何人的后腿！",
+               },
+              {
+                   title:"勇敢",
+                   author:"大白",
+                   publicshDate:"2019-12-13",
+                   content:"摔倒了就爬起来继续跑！",
+               }
+            ]
+               
+
+        }
+       
+    })
+    </script>
+    
+</body>
+</html>
